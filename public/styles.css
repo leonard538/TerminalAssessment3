@@ -1,0 +1,280 @@
+@font-face {
+    font-family: 'AmaticSC';
+    src: url('fonts/AmaticSC-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Soffiti';
+    src: url('fonts/soffiti.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.swal2-container {
+  z-index: 99999 !important;
+}
+
+button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#songList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px; /* Add maximum width */
+    margin: 0 auto; /* Center the grid */
+}
+
+#songList li {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-header {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #fc5974;  
+    font-family: 'Soffiti', sans-serif;
+}
+
+.tagline {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 2rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.login-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.login-search #login-btn, #query, #search-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.login-search #login-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.login-search #login-btn:hover {
+    background-color: #45a049;
+}
+
+.login-search #search-btn {
+    background-color: #fc5974;
+    color: white;
+    font-weight: bold;
+}
+
+.login-search #search-btn:hover {
+    background-color: #e04a63;
+}
+
+.catalog-header {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 3.0rem;
+    font-weight: 600;
+    color: #fc5974;
+    font-family: 'AmaticSC', cursive;
+}
+
+#songList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    list-style: none; /* Add this if your songs are in li elements */
+}
+
+.song-card {
+    width: 250px;
+    height: 375px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+    display: block; /* Add this to ensure proper card layout */
+    margin-bottom: 0; /* Remove any default margins */
+}
+
+.song-card .scroll-title {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 5px 10px;
+}
+
+.song-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 10px;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 8px;
+    background: #f5f5f5;
+}
+
+.card-buttons span {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 16px;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: value 0.3s ease;
+}
+
+button.play-btn {
+    background: #fc5974;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+button.play-btn:hover { background: #e04a63;}
+
+button.pause-btn {
+    background: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+button.pause-btn:hover { background: #ec971f;}
+
+button.replay-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+button.replay-btn:hover { background: #45a049;}
+
+button.delete-btn {
+    background: #d73131;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+button.delete-btn:hover { background: #c12c2c;}
+
+
+@media (max-width: 1024px) {
+    #songList {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    #songList {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
+
+
+/*FLOATING SEARCH WINDOW*/
+.floating-window {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    max-height: 80vh;
+    background: white;
+    border: 2px solid #444;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 999;
+    padding: 1rem;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.floating-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.floating-header button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.floating-track {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+}
+
+.floating-track img {
+    margin-right: 10px;
+}
+
+
+.favorite-btn {
+    margin-top: 20px;
+    color: white;
+    background-color: #fc5974;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.favorite-btn:hover {
+    background-color: #e04a63;
+}

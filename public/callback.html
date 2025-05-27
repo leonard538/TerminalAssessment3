@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotify Callback</title>
+</head>
+<body>
+  <script>
+    // Get the authorization code from the URL
+    const code = new URLSearchParams(window.location.search).get('code');
+
+    // Send the code to the backend to get the access token
+    fetch('/get_token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ code })
+    })
+    .then(res => res.json())
+    .then(data => {
+      localStorage.setItem('access_token', data.access_token);
+      // Redirect back to index.html
+      window.location.href = '/';
+    })
+    .catch(err => {
+      console.error('Token exchange failed:', err);
+      alert('Authentication failed. See console for details.');
+    });
+  </script>
+</body>
+</html>
